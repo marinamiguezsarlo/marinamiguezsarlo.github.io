@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marina Míguez · Diseñadora Instruccional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue-dark: #1a3a5c;
+  --blue-mid: #2563a8;
+  --blue-light: #dbeafe;
+  --blue-pale: #eff6ff;
+  --green-dark: #0d6e4e;
+  --green-mid: #16a34a;
+  --green-light: #d1fae5;
+  --green-pale: #f0fdf4;
+  --teal: #0891b2;
+  --teal-light: #cffafe;
+  --yellow: #fbbf24;
+  --yellow-light: #fef9c3;
+  --coral: #f97316;
+  --coral-light: #ffedd5;
+  --white: #ffffff;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --radius: 20px;
+  --radius-sm: 12px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito', sans-serif; color: var(--ink); background: var(--white); overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--blue-light);
+  padding: 0.9rem 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.3rem; color: var(--blue-dark); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+.nav-logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green-mid); display: inline-block; }
+.nav-links { display: flex; gap: 0.3rem; list-style: none; }
+.nav-links a { font-size: 0.82rem; font-weight: 700; text-decoration: none; color: var(--ink); padding: 0.4rem 0.9rem; border-radius: 999px; transition: background 0.2s, color 0.2s; }
+.nav-links a:hover { background: var(--blue-light); color: var(--blue-dark); }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f2fe 0%, #d1fae5 50%, #eff6ff 100%);
+  display: flex; align-items: center;
+  padding: 7rem 3rem 4rem;
+  position: relative; overflow: hidden;
+}
+.bubble { position: absolute; border-radius: 50%; opacity: 0.18; }
+.b1 { width: 400px; height: 400px; background: var(--blue-mid); top: -100px; right: -80px; }
+.b2 { width: 250px; height: 250px; background: var(--green-mid); bottom: 50px; left: -60px; }
+.b3 { width: 150px; height: 150px; background: var(--teal); top: 200px; right: 350px; }
+.b4 { width: 80px; height: 80px; background: var(--yellow); top: 80px; left: 200px; }
+.hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; width: 100%; }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--white); border: 2px solid var(--green-mid); border-radius: 999px; padding: 0.4rem 1rem; font-size: 0.8rem; font-weight: 700; color: var(--green-dark); margin-bottom: 1.5rem; }
+.badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-mid); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.4);opacity:0.6} }
+.hero-title { font-family: 'Fraunces', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 900; line-height: 1.1; color: var(--blue-dark); margin-bottom: 1.2rem; }
+.hero-title .hi { color: var(--green-dark); font-style: italic; }
+.hero-subtitle { font-size: 1.05rem; line-height: 1.75; color: var(--muted); margin-bottom: 2rem; max-width: 440px; }
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-main { background: var(--blue-dark); color: #fff; padding: 0.85rem 2rem; border-radius: 999px; font-weight: 800; font-size: 0.9rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 15px rgba(26,58,92,0.3); }
+.btn-main:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(26,58,92,0.35); }
+.btn-sec { background: var(--white); color: var(--green-dark); padding: 0.85rem 2rem; border-radius: 999px; font-weight: 800; font-size: 0.9rem; text-decoration: none; border: 2.5px solid var(--green-mid); transition: background 0.2s; }
+.btn-sec:hover { background: var(--green-light); }
+
+.hero-visual { position: relative; }
+.hero-card-main { background: var(--white); border-radius: var(--radius); padding: 2rem; box-shadow: 0 20px 60px rgba(37,99,168,0.15); position: relative; z-index: 2; }
+.hero-card-main h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; color: var(--blue-dark); margin-bottom: 1.2rem; }
+.stat-pills { display: flex; flex-direction: column; gap: 0.7rem; }
+.stat-pill { display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1rem; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 700; }
+.sp-blue { background: var(--blue-light); color: var(--blue-dark); }
+.sp-green { background: var(--green-light); color: var(--green-dark); }
+.sp-yellow { background: var(--yellow-light); color: #92400e; }
+.sp-teal { background: var(--teal-light); color: #164e63; }
+.stat-pill-num { font-size: 1.4rem; font-weight: 900; min-width: 70px; }
+.hero-float-1, .hero-float-2 { position: absolute; border-radius: var(--radius-sm); padding: 0.8rem 1.2rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1); font-weight: 700; font-size: 0.82rem; display: flex; align-items: center; gap: 0.5rem; z-index: 3; }
+.hero-float-1 { top: -1rem; right: -1.5rem; color: var(--green-dark); background: var(--green-light); }
+.hero-float-2 { bottom: -1rem; left: -1.5rem; color: var(--blue-dark); background: var(--blue-light); }
+
+/* SECTION */
+.section-wrap { max-width: 1100px; margin: 0 auto; }
+.sec-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.8rem; }
+.sec-eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.sec-title { font-family: 'Fraunces', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; }
+
+/* SOBRE MÍ */
+#sobre-mi { background: var(--white); padding: 6rem 3rem; }
+.sobre-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+.ilus-big { background: linear-gradient(135deg, var(--blue-light), var(--teal-light)); border-radius: var(--radius); padding: 3rem 2rem; text-align: center; font-size: 6rem; line-height: 1; margin-bottom: 1rem; }
+.ilus-chips { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+.chip { padding: 0.5rem 1rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; }
+.chip-blue { background: var(--blue-light); color: var(--blue-dark); }
+.chip-green { background: var(--green-light); color: var(--green-dark); }
+.chip-yellow { background: var(--yellow-light); color: #92400e; }
+.chip-teal { background: var(--teal-light); color: #164e63; }
+.chip-coral { background: var(--coral-light); color: #9a3412; }
+.sobre-text .sec-eyebrow { color: var(--green-dark); }
+.sobre-text .sec-eyebrow-dot { background: var(--green-mid); }
+.sobre-text .sec-title { color: var(--blue-dark); }
+.sobre-text p { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 1.1rem; }
+.sobre-text p strong { color: var(--ink); font-weight: 800; }
+.timeline { margin-top: 1.5rem; }
+.tl-item { display: flex; gap: 1rem; padding-bottom: 1.2rem; position: relative; }
+.tl-item::after { content: ''; position: absolute; left: 14px; top: 28px; bottom: 0; width: 2px; background: var(--blue-light); }
+.tl-item:last-child::after { display: none; }
+.tl-icon { width: 30px; height: 30px; border-radius: 50%; background: var(--blue-light); color: var(--blue-dark); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; position: relative; z-index: 1; }
+.tl-year { font-size: 0.72rem; color: var(--blue-mid); font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.tl-role { font-weight: 800; font-size: 0.9rem; color: var(--ink); }
+.tl-org { font-size: 0.82rem; color: var(--muted); }
+
+/* MÉTRICAS */
+#metricas { background: var(--blue-dark); padding: 6rem 3rem; }
+#metricas .sec-eyebrow { color: var(--teal-light); }
+#metricas .sec-eyebrow-dot { background: var(--teal-light); }
+#metricas .sec-title { color: #fff; }
+#metricas .sec-title em { color: var(--yellow); font-style: italic; }
+.metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 2rem; }
+.metric-card { background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.15); border-radius: var(--radius); padding: 2rem 1.5rem; transition: transform 0.25s; }
+.metric-card:hover { transform: translateY(-5px); }
+.metric-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+.metric-num { font-family: 'Fraunces', serif; font-size: 2.8rem; font-weight: 900; color: var(--yellow); line-height: 1; display: block; margin-bottom: 0.4rem; }
+.metric-label { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.4; font-weight: 600; }
+
+/* HERRAMIENTAS */
+#herramientas { background: var(--green-pale); padding: 6rem 3rem; }
+#herramientas .sec-eyebrow { color: var(--green-dark); }
+#herramientas .sec-eyebrow-dot { background: var(--green-mid); }
+#herramientas .sec-title { color: var(--blue-dark); }
+.tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2rem; }
+.tool-card { background: var(--white); border-radius: var(--radius); padding: 1.8rem; border: 2px solid transparent; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+.tool-card:hover { border-color: var(--blue-mid); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(37,99,168,0.12); }
+.tool-emoji { font-size: 2.2rem; display: block; margin-bottom: 0.8rem; }
+.tool-name { font-weight: 900; font-size: 1rem; color: var(--blue-dark); margin-bottom: 0.3rem; }
+.tool-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.55; margin-bottom: 0.9rem; }
+.tool-bar-wrap { height: 6px; background: var(--blue-light); border-radius: 999px; overflow: hidden; }
+.tool-bar { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--blue-mid), var(--teal)); }
+
+.metodo-section { margin-top: 4rem; }
+.metodo-section .sec-eyebrow { color: var(--green-dark); }
+.metodo-section .sec-eyebrow-dot { background: var(--green-mid); }
+.metodo-section .sec-title { color: var(--blue-dark); }
+.metodos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 1.5rem; }
+.metodo-card { border-radius: var(--radius); padding: 1.8rem; position: relative; overflow: hidden; }
+.mc-1 { background: var(--blue-light); }
+.mc-2 { background: var(--green-light); }
+.mc-3 { background: var(--teal-light); }
+.mc-4 { background: var(--yellow-light); }
+.mc-5 { background: var(--coral-light); }
+.mc-6 { background: #ede9fe; }
+.metodo-emoji { font-size: 2rem; display: block; margin-bottom: 0.7rem; }
+.metodo-title { font-weight: 900; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.4rem; }
+.metodo-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+.metodo-num-bg { position: absolute; right: 0.8rem; bottom: 0.2rem; font-family: 'Fraunces', serif; font-size: 5rem; font-weight: 900; color: rgba(0,0,0,0.06); line-height: 1; pointer-events: none; }
+
+/* PROYECTOS */
+#proyectos { background: var(--white); padding: 6rem 3rem; }
+#proyectos .sec-eyebrow { color: var(--blue-mid); }
+#proyectos .sec-eyebrow-dot { background: var(--blue-mid); }
+#proyectos .sec-title { color: var(--blue-dark); }
+.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2rem; }
+.project-card { border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.07); transition: transform 0.25s, box-shadow 0.25s; background: var(--white); border: 2px solid #f1f5f9; }
+.project-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+.project-thumb { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 4rem; position: relative; }
+.pt-birds { background: linear-gradient(135deg, #fbbf24, #f97316); }
+.pt-comm  { background: linear-gradient(135deg, #ef4444, #f97316); }
+.pt-smart { background: linear-gradient(135deg, #0ea5e9, #06b6d4); }
+.pt-quiz  { background: linear-gradient(135deg, #7c3aed, #4f46e5); }
+.pt-coci  { background: linear-gradient(135deg, #ea580c, #dc2626); }
+.pt-form  { background: linear-gradient(135deg, #16a34a, #0891b2); }
+.project-body { padding: 1.4rem; }
+.project-type { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--blue-mid); margin-bottom: 0.4rem; }
+.project-title { font-weight: 900; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.3; }
+.project-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.55; margin-bottom: 1rem; }
+.project-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.proj-tag { padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.68rem; font-weight: 700; }
+.t-blue { background: var(--blue-light); color: var(--blue-dark); }
+.t-green { background: var(--green-light); color: var(--green-dark); }
+.t-yellow { background: var(--yellow-light); color: #92400e; }
+.t-teal { background: var(--teal-light); color: #164e63; }
+.t-coral { background: var(--coral-light); color: #9a3412; }
+.t-purple { background: #ede9fe; color: #5b21b6; }
+
+/* ENGLISH */
+#english { background: linear-gradient(135deg, #0c4a6e 0%, #065f46 100%); padding: 6rem 3rem; }
+#english .sec-eyebrow { color: rgba(255,255,255,0.6); }
+#english .sec-eyebrow-dot { background: var(--yellow); }
+#english .sec-title { color: #fff; }
+.english-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; margin-top: 1rem; }
+.english-text p { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.75); margin-bottom: 1rem; }
+.english-text p strong { color: #fff; font-weight: 800; }
+.skills-chips { display: flex; flex-direction: column; gap: 0.7rem; }
+.skill-chip { display: flex; align-items: center; gap: 0.8rem; background: rgba(255,255,255,0.1); border-radius: var(--radius-sm); padding: 0.75rem 1rem; border: 1.5px solid rgba(255,255,255,0.15); }
+.skill-chip span { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.9); }
+.btn-english { display: inline-block; background: var(--yellow); color: var(--blue-dark); padding: 0.85rem 2rem; border-radius: 999px; font-weight: 800; font-size: 0.9rem; text-decoration: none; margin-top: 1.5rem; transition: transform 0.2s; }
+.btn-english:hover { transform: translateY(-2px); }
+
+/* CONTACTO */
+#contacto { background: var(--blue-pale); padding: 6rem 3rem; text-align: center; }
+#contacto .sec-eyebrow { color: var(--green-dark); justify-content: center; }
+#contacto .sec-eyebrow-dot { background: var(--green-mid); }
+#contacto .sec-title { color: var(--blue-dark); }
+.contact-subtitle { font-size: 1rem; color: var(--muted); margin-bottom: 3rem; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+.contact-cards { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
+.contact-card { background: var(--white); border-radius: var(--radius); padding: 1.8rem 2.2rem; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; box-shadow: 0 4px 20px rgba(37,99,168,0.1); transition: transform 0.2s, box-shadow 0.2s; min-width: 200px; border: 2px solid transparent; }
+.contact-card:hover { transform: translateY(-5px); box-shadow: 0 12px 35px rgba(37,99,168,0.18); border-color: var(--blue-light); }
+.contact-card-icon { font-size: 2rem; }
+.contact-card-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.contact-card-value { font-weight: 700; font-size: 0.88rem; color: var(--blue-dark); }
+.contact-location { margin-top: 3rem; display: inline-flex; align-items: center; gap: 0.6rem; background: var(--white); padding: 0.7rem 1.5rem; border-radius: 999px; font-size: 0.85rem; font-weight: 700; color: var(--muted); box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+
+/* FOOTER */
+footer { background: var(--blue-dark); color: rgba(255,255,255,0.5); text-align: center; padding: 1.8rem; font-size: 0.82rem; }
+footer span { color: var(--green-light); }
+
+/* ANIMATIONS */
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 0.8rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero-inner, .sobre-grid, .english-grid { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .metrics-grid, .tools-grid, .metodos-grid, .projects-grid { grid-template-columns: 1fr 1fr; }
+  #sobre-mi, #metricas, #herramientas, #proyectos, #english, #contacto { padding: 4rem 1.5rem; }
+  #hero { padding: 6rem 1.5rem 3rem; }
+}
+@media (max-width: 580px) {
+  .metrics-grid, .tools-grid, .metodos-grid, .projects-grid { grid-template-columns: 1fr; }
+  .contact-cards { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo"><span class="nav-logo-dot"></span> Marina Míguez</a>
+  <ul class="nav-links">
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#metricas">Logros</a></li>
+    <li><a href="#herramientas">Herramientas</a></li>
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#english">English</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="bubble b1"></div><div class="bubble b2"></div><div class="bubble b3"></div><div class="bubble b4"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="badge-dot"></span> Disponible para proyectos</div>
+      <h1 class="hero-title">Aprendizaje<br>que <span class="hi">inspira</span><br>y transforma.</h1>
+      <p class="hero-subtitle">Soy Marina, diseñadora instruccional con más de <strong>15 años</strong> creando experiencias e-learning que la gente quiere terminar. Gamificación, metodologías activas e impacto a escala nacional.</p>
+      <div class="hero-btns">
+        <a href="#proyectos" class="btn-main">Ver mis proyectos →</a>
+        <a href="#contacto" class="btn-sec">Trabajemos juntos</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-float-1">✨ +300.000 estudiantes</div>
+      <div class="hero-card-main">
+        <h3>📊 Impacto real</h3>
+        <div class="stat-pills">
+          <div class="stat-pill sp-blue"><span class="stat-pill-num">300K+</span><span>Usuarios registrados en la plataforma</span></div>
+          <div class="stat-pill sp-green"><span class="stat-pill-num">&gt;70%</span><span>Retención en cursos MOOC gratuitos</span></div>
+          <div class="stat-pill sp-yellow"><span class="stat-pill-num">216K</span><span>Matriculaciones en pandemia (2020)</span></div>
+          <div class="stat-pill sp-teal"><span class="stat-pill-num">&gt;85%</span><span>Satisfacción sostenida del alumnado</span></div>
+        </div>
+      </div>
+      <div class="hero-float-2">🎓 ISO 9001 · 8 años consecutivos</div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <div class="section-wrap">
+    <div class="sobre-grid">
+      <div class="fade-up">
+        <div class="ilus-big">👩‍💻</div>
+        <div class="ilus-chips">
+          <span class="chip chip-blue">Diseño instruccional</span>
+          <span class="chip chip-green">E-learning</span>
+          <span class="chip chip-yellow">Gamificación</span>
+          <span class="chip chip-teal">Moodle</span>
+          <span class="chip chip-coral">ISO 9001</span>
+          <span class="chip chip-blue">Genially</span>
+          <span class="chip chip-green">Microlearning</span>
+          <span class="chip chip-teal">IA Generativa</span>
+        </div>
+      </div>
+      <div class="sobre-text fade-up delay-1">
+        <div class="sec-eyebrow"><span class="sec-eyebrow-dot"></span> Sobre mí</div>
+        <h2 class="sec-title">Diseño que<br>enseña de verdad.</h2>
+        <p>Soy diseñadora instruccional con más de <strong>15 años de experiencia</strong> en el ciclo completo de formación digital. Construí y coordiné una plataforma de alcance nacional con cientos de miles de usuarios.</p>
+        <p>Mi enfoque combina <strong>metodologías activas</strong> —gamificación, storytelling, microlearning— con una sólida gestión de calidad (ISO 9001) y dominio de herramientas de autor actuales.</p>
+        <p>Hoy, desde <strong>Gandía, Valencia</strong>, ofrezco mis servicios como consultora freelance para proyectos en España y América Latina.</p>
+        <div class="timeline" style="margin-top:2rem;">
+          <div class="tl-item"><div class="tl-icon">🚀</div><div class="tl-body"><div class="tl-year">2025 – Actualidad</div><div class="tl-role">Consultora Freelance · España / Argentina</div><div class="tl-org">Diseño instruccional, itinerarios pedagógicos, producción interactiva</div></div></div>
+          <div class="tl-item"><div class="tl-icon">🏛️</div><div class="tl-body"><div class="tl-year">2003 – 2025</div><div class="tl-role">Coordinadora de Diseño Instruccional y E-learning</div><div class="tl-org">Secretaría de Turismo de la Nación Argentina</div></div></div>
+          <div class="tl-item"><div class="tl-icon">✅</div><div class="tl-body"><div class="tl-year">2015 – 2023</div><div class="tl-role">Responsable ISO 9001 · 8 años consecutivos</div><div class="tl-org">Auditorías, documentación, certificación y mantenimiento del SGC</div></div></div>
+          <div class="tl-item"><div class="tl-icon">🎓</div><div class="tl-body"><div class="tl-year">2025</div><div class="tl-role">Diplomatura Gestión Educativa + IA · UTN</div><div class="tl-org">En curso: Certificado de Profesionalidad Docente (Grados A, B y C)</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="metricas">
+  <div class="section-wrap">
+    <div class="sec-eyebrow"><span class="sec-eyebrow-dot"></span> Impacto & logros</div>
+    <h2 class="sec-title">Números que <em>cuentan la historia.</em></h2>
+    <div class="metrics-grid">
+      <div class="metric-card fade-up"><span class="metric-icon">👩‍🎓</span><span class="metric-num">+300K</span><p class="metric-label">Usuarios registrados en la plataforma Moodle Campus Mintur / Yverá</p></div>
+      <div class="metric-card fade-up delay-1"><span class="metric-icon">📈</span><span class="metric-num">12×</span><p class="metric-label">Crecimiento en pandemia: de 17K a 216K matriculaciones en un año</p></div>
+      <div class="metric-card fade-up delay-2"><span class="metric-icon">🎯</span><span class="metric-num">&gt;70%</span><p class="metric-label">Retención en MOOCs gratuitos, vs. media del sector por debajo del 15%</p></div>
+      <div class="metric-card fade-up delay-3"><span class="metric-icon">⭐</span><span class="metric-num">+60</span><p class="metric-label">Cursos virtuales diseñados sobre turismo, calidad y emprendimiento</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="herramientas">
+  <div class="section-wrap">
+    <div class="sec-eyebrow"><span class="sec-eyebrow-dot"></span> Herramientas de autor</div>
+    <h2 class="sec-title">Mi caja de herramientas.</h2>
+    <div class="tools-grid">
+      <div class="tool-card fade-up"><span class="tool-emoji">🎨</span><div class="tool-name">Genially</div><p class="tool-desc">Presentaciones y recursos interactivos con animaciones, gamificación y multimedia. Nivel avanzado.</p><div class="tool-bar-wrap"><div class="tool-bar" style="width:100%"></div></div></div>
+      <div class="tool-card fade-up delay-1"><span class="tool-emoji">📚</span><div class="tool-name">Moodle LMS</div><p class="tool-desc">Administración pedagógica completa: aulas, roles, actividades de evaluación y seguimiento.</p><div class="tool-bar-wrap"><div class="tool-bar" style="width:100%"></div></div></div>
+      <div class="tool-card fade-up delay-2"><span class="tool-emoji">🧩</span><div class="tool-name">H5P</div><p class="tool-desc">Contenidos interactivos: cuestionarios, drag & drop, líneas de tiempo y actividades colaborativas.</p><div class="tool-bar-wrap"><div class="tool-bar" style="width:82%"></div></div></div>
+      <div class="tool-card fade-up"><span class="tool-emoji">🚀</span><div class="tool-name">Articulate Rise</div><p class="tool-desc">Cursos responsivos con distribución SCORM para plataformas LMS de cualquier organización.</p><div class="tool-bar-wrap"><div class="tool-bar" style="width:65%"></div></div></div>
+      <div class="tool-card fade-up delay-1"><span class="tool-emoji">🖌️</span><div class="tool-name">Canva</div><p class="tool-desc">Diseño de materiales educativos, infografías y contenido gráfico de alta calidad visual.</p><div class="tool-bar-wrap"><div class="tool-bar" style="width:88%"></div></div></div>
+      <div class="tool-card fade-up delay-2"><span class="tool-emoji">🤖</span><div class="tool-name">IA Generativa</div><p class="tool-desc">Integración de IA en flujos de producción para ganar eficiencia sin perder calidad pedagógica.</p><div class="tool-bar-wrap"><div class="tool-bar" style="width:80%"></div></div></div>
+    </div>
+    <div class="metodo-section">
+      <div class="sec-eyebrow" style="margin-top:3rem;"><span class="sec-eyebrow-dot"></span> Metodologías activas</div>
+      <h2 class="sec-title">Cómo diseño el aprendizaje.</h2>
+      <div class="metodos-grid">
+        <div class="metodo-card mc-1 fade-up"><span class="metodo-emoji">🎮</span><div class="metodo-title">Gamificación</div><p class="metodo-desc">Puntos, insignias y retos para mantener la motivación durante todo el recorrido formativo.</p><span class="metodo-num-bg">01</span></div>
+        <div class="metodo-card mc-2 fade-up delay-1"><span class="metodo-emoji">📖</span><div class="metodo-title">Storytelling</div><p class="metodo-desc">Narrativas y escenarios reales que contextualizan el contenido técnico y facilitan la transferencia.</p><span class="metodo-num-bg">02</span></div>
+        <div class="metodo-card mc-3 fade-up delay-2"><span class="metodo-emoji">⚡</span><div class="metodo-title">Microlearning</div><p class="metodo-desc">Contenidos breves y reutilizables para el aprendizaje en el flujo de trabajo.</p><span class="metodo-num-bg">03</span></div>
+        <div class="metodo-card mc-4 fade-up"><span class="metodo-emoji">🔍</span><div class="metodo-title">Aprendizaje Basado en Problemas</div><p class="metodo-desc">Situaciones-problema que activan saberes previos y desafían a construir soluciones reales.</p><span class="metodo-num-bg">04</span></div>
+        <div class="metodo-card mc-5 fade-up delay-1"><span class="metodo-emoji">🤝</span><div class="metodo-title">Aprendizaje Colaborativo</div><p class="metodo-desc">Foros y actividades grupales que enriquecen el aprendizaje con la perspectiva de los pares.</p><span class="metodo-num-bg">05</span></div>
+        <div class="metodo-card mc-6 fade-up delay-2"><span class="metodo-emoji">♿</span><div class="metodo-title">Diseño Universal</div><p class="metodo-desc">Contenidos accesibles para perfiles diversos, con múltiples formas de representación.</p><span class="metodo-num-bg">06</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="section-wrap">
+    <div class="sec-eyebrow"><span class="sec-eyebrow-dot"></span> Portfolio de trabajo</div>
+    <h2 class="sec-title">Proyectos destacados.</h2>
+    <div class="projects-grid">
+      <div class="project-card fade-up">
+        <div class="project-thumb pt-birds">🐦</div>
+        <div class="project-body"><div class="project-type">Curso autogestionado · Gamificación</div><div class="project-title">Observación de Aves Silvestres</div><p class="project-desc">Módulo interactivo con identificación de aves, videos embebidos y quiz estilo "¿Jugamos?". Turismo y patrimonio natural.</p><div class="project-tags"><span class="proj-tag t-blue">Genially</span><span class="proj-tag t-yellow">Gamificación</span><span class="proj-tag t-green">Turismo</span></div></div>
+      </div>
+      <div class="project-card fade-up delay-1">
+        <div class="project-thumb pt-comm">📱</div>
+        <div class="project-body"><div class="project-type">Curso autogestionado · Interactividad</div><div class="project-title">Estrategias de Comunicación Turística</div><p class="project-desc">Marketing de contenidos digital con mapas conceptuales interactivos, ejercicios de activación y objetivos S.M.A.R.T.</p><div class="project-tags"><span class="proj-tag t-coral">Marketing</span><span class="proj-tag t-blue">Genially</span><span class="proj-tag t-teal">Interactividad</span></div></div>
+      </div>
+      <div class="project-card fade-up delay-2">
+        <div class="project-thumb pt-smart">🏙️</div>
+        <div class="project-body"><div class="project-type">Curso autogestionado · Smart Cities</div><div class="project-title">Destinos Turísticos Inteligentes</div><p class="project-desc">Smart Cities y turismo. Navegación libre, infografías interactivas y análisis de casos de América Latina.</p><div class="project-tags"><span class="proj-tag t-teal">Smart Cities</span><span class="proj-tag t-blue">Infografías</span><span class="proj-tag t-green">Moodle</span></div></div>
+      </div>
+      <div class="project-card fade-up">
+        <div class="project-thumb pt-quiz">🦸</div>
+        <div class="project-body"><div class="project-type">Actividad gamificada · Quiz</div><div class="project-title">¿Eres un Turista Mobile?</div><p class="project-desc">Super Quiz con mecánica de superhéroes y poderes. Feedback inmediato, narrativa comic-style e insignias al completar.</p><div class="project-tags"><span class="proj-tag t-purple">Gamificación</span><span class="proj-tag t-blue">Quiz</span><span class="proj-tag t-yellow">Engagement</span></div></div>
+      </div>
+      <div class="project-card fade-up delay-1">
+        <div class="project-thumb pt-coci">🍳</div>
+        <div class="project-body"><div class="project-type">Simulación · ABP</div><div class="project-title">Simulacro en la Cocina</div><p class="project-desc">Escenario de inspección sanitaria en restaurantes. El participante toma decisiones reales en un contexto inmersivo.</p><div class="project-tags"><span class="proj-tag t-coral">Simulación</span><span class="proj-tag t-green">ABP</span><span class="proj-tag t-blue">Storytelling</span></div></div>
+      </div>
+      <div class="project-card fade-up delay-2">
+        <div class="project-thumb pt-form">🎓</div>
+        <div class="project-body"><div class="project-type">Programa nacional · Formación de formadores</div><div class="project-title">Sello FormAR</div><p class="project-desc">Profesionalización pedagógica para 56 técnicos de organismos turísticos en planificación y facilitación de capacitaciones.</p><div class="project-tags"><span class="proj-tag t-green">Formadores</span><span class="proj-tag t-teal">Nacional</span><span class="proj-tag t-blue">Coordinación</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="english">
+  <div class="section-wrap">
+    <div class="sec-eyebrow"><span class="sec-eyebrow-dot"></span> Professional profile · English</div>
+    <h2 class="sec-title">Available for international projects.</h2>
+    <div class="english-grid">
+      <div class="english-text fade-up">
+        <p>I'm an instructional designer with over <strong>15 years of experience</strong> in the full e-learning cycle: needs analysis, instructional design, interactive content production, and quality management.</p>
+        <p>I built and coordinated a national-scale learning platform reaching over <strong>300,000 registered users</strong>, achieving retention rates above 70% and sustained satisfaction above 85%.</p>
+        <p>Currently based in <strong>Gandía, Spain</strong>, available for freelance projects across Europe and Latin America. Spanish (native) · English (B2).</p>
+        <a href="mailto:marinavmiguez@gmail.com" class="btn-english">✉️ Get in touch</a>
+      </div>
+      <div class="skills-chips fade-up delay-1">
+        <div class="skill-chip"><span>✅</span><span>Instructional Design (ADDIE, Backward Design)</span></div>
+        <div class="skill-chip"><span>✅</span><span>E-learning Content Production</span></div>
+        <div class="skill-chip"><span>✅</span><span>LMS Administration (Moodle)</span></div>
+        <div class="skill-chip"><span>✅</span><span>Gamification & Active Learning</span></div>
+        <div class="skill-chip"><span>✅</span><span>Quality Management (ISO 9001)</span></div>
+        <div class="skill-chip"><span>✅</span><span>AI-powered content workflows</span></div>
+        <div class="skill-chip"><span>✅</span><span>Team coordination & coaching</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="section-wrap">
+    <div class="sec-eyebrow"><span class="sec-eyebrow-dot"></span> ¡Hablemos!</div>
+    <h2 class="sec-title">¿Tenés un proyecto<br>en mente?</h2>
+    <p class="contact-subtitle">Ofrezco servicios de diseño instruccional freelance para empresas, academias virtuales, organismos públicos y grupos de salud. Me especializo en convertir contenido técnico complejo en experiencias de aprendizaje que la gente quiere terminar.</p>
+    <div class="contact-cards">
+      <a href="mailto:marinavmiguez@gmail.com" class="contact-card"><span class="contact-card-icon">✉️</span><span class="contact-card-label">Email</span><span class="contact-card-value">marinavmiguez@gmail.com</span></a>
+      <a href="tel:+34673810131" class="contact-card"><span class="contact-card-icon">📞</span><span class="contact-card-label">Teléfono</span><span class="contact-card-value">+34 673 810 131</span></a>
+      <a href="https://linkedin.com" target="_blank" class="contact-card"><span class="contact-card-icon">💼</span><span class="contact-card-label">LinkedIn</span><span class="contact-card-value">Marina Míguez Sarlo</span></a>
+    </div>
+    <div class="contact-location">📍 Gandía, Valencia · Disponible para proyectos remotos en España y América Latina</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <span>Marina Míguez Sarlo</span> · Diseñadora Instruccional & E-learning · Gandía, Valencia</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
